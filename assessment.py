@@ -222,9 +222,15 @@ addfive(20)
    >>> add_number_to_list(42, nums)
    >>> nums
    [1, 2, 3, 42]
+
+   >>> add_number_to_list("23", nums)
+   The first argument is not a number. Please try again.
 """
 
 def add_number_to_list(number, number_list):
+    if isinstance(number, float) != True or isinstance(number, int) != true:
+        print "The first argument is not a number. Please try again."
+        return
     return number_list.append(number)
 
 #####################################################################
