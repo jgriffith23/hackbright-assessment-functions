@@ -29,8 +29,6 @@
 
 def item_cost(state, initial_cost, tax=.05):
 
-    if isinstance(state, string) != True
-
     #Check the state. If it's CA, set tax to .07.
     if state == "CA":
         tax = .07
@@ -197,20 +195,40 @@ def hometown_greeting(hometown, first_name, last_name):
    >>> addten(20)
    30
 
+   >>> addfour = increment(4)
+   >>> addfour("carrot")
+   You must pass a number. Please try again.
+
 """
 
 def increment(x=1):
+
+    #Ask the user to try a different input if they use a string or any other non-numeric
+    #type. This will prevent errors that can arise if they use a string to create the adder
+    #and then try a number later, or vice versa.
+    if (isinstance(x, int) != True) and (isinstance(x, float) != True):
+        print "You must pass a number. Please try again."
+        return
+
     #Create the custom adding function.
     def add(y):
-        return x + y
+        try: 
+            return x + y
+        except TypeError:
+            print "You muts pass a number. Please try again."
+            return
     return add
 
 # 2. Call the function ``increment()`` with x = 5. Assign what is returned to a variable name, addfive. Call 
 #    addfive with y = 5. Call again with y = 20.
 
 addfive = increment(5)
+print "1"
 addfive(5)
+print "2"
 addfive(20)
+print "3"
+addfive("carrot")
 
 # 3. Make a function that takes in a number and a list of numbers. It should append
 #    the number to the list of numbers and return the list.
@@ -221,14 +239,14 @@ addfive(20)
    >>> nums = [1,2,3]
    >>> add_number_to_list(42, nums)
    >>> nums
-   [1, 2, 3, 42]
+   [1, 2, 3, 43]
 
    >>> add_number_to_list("23", nums)
    The first argument is not a number. Please try again.
 """
 
 def add_number_to_list(number, number_list):
-    if isinstance(number, float) != True or isinstance(number, int) != true:
+    if (isinstance(number, float) != True) or (isinstance(number, int) != True):
         print "The first argument is not a number. Please try again."
         return
     return number_list.append(number)
