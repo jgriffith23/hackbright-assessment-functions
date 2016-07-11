@@ -215,7 +215,7 @@ def increment(x=1):
         try: 
             return x + y
         except TypeError:
-            print "You muts pass a number. Please try again."
+            print "You must pass a number. Please try again."
             return
     return add
 
@@ -223,11 +223,8 @@ def increment(x=1):
 #    addfive with y = 5. Call again with y = 20.
 
 addfive = increment(5)
-print "1"
 addfive(5)
-print "2"
 addfive(20)
-print "3"
 addfive("carrot")
 
 # 3. Make a function that takes in a number and a list of numbers. It should append
